@@ -55,7 +55,7 @@
                     echo "<td>" . $row['genero'] . "</td>";
                     echo "<td>" . $row['telefono'] . "</td>";
                     echo "<td>" . $row['email'] . "</td>";
-                    echo "<td><a href='asing_exercise.php?cedula=".$row['cedula']."'>Asignar ejercicio</a> | <a href='progreso_trainer.php?cedula=". $row['cedula'] . "' target='_blank'>Progreso</a></td>";                    echo "</tr>";
+                    echo "<td><a href='asing_exercise.php?cedula=".$row['cedula']."'>Asignar ejercicio</a> | <a href='progreso_trainer.php?cedula=". $row['cedula'] . "' target='_blank'>Progreso</a> | <a href='reporte_trainer.php?cedula=". $row['cedula'] . "' target='_blank'>Reporte</a> </td>";echo "</tr>";
                 }
                 ?>
             </tbody>

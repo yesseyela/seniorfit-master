@@ -1,5 +1,4 @@
 <?php
-// Conexión a la base de datos
 include("conecta.php");
 $bd = conectar();
 
@@ -58,7 +57,7 @@ if (!$res){
     //<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
     //</button></div>";
     echo "<script>alert('La cedula registrada ya existe!!.')</script>";
-    header ("location:register.php");
+    header('refresh:0; url=index.php');
 }
 else{
     //echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>
@@ -66,7 +65,7 @@ else{
     //<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
     //</button></div>";
     echo "<script>alert('Registro adicionado con éxito!!.')</script>";
-    header ("location:register.php");
+    header('refresh:0; url=index.php');
 }
 
 // Cerrar la conexión a la base de datos
