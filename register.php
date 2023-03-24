@@ -49,8 +49,9 @@
       <div class="form-group">
         <label for="tipo_usuario">Tipo de Usuario:</label>
         <select class="form-control" id="tipo_usuario" name="tipo_usuario" required>
+          <option value="Otro">Otro</option>  
           <option value="Adulto Mayor">Adulto Mayor</option>
-          <option value="Entrenador">Entrenador</option>
+          <!-- <option value="Entrenador">Entrenador</option> -->
         </select>
       </div>
       <div class="form-group" id="preguntas_adulto_mayor" style="display: none;">
