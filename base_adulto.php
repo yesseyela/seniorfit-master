@@ -10,13 +10,15 @@
 </head>
 <body>
     <div class="navbar">
+      <a href="adulto_home.php">Adulto mayor</a>
       <a href="activities.php">Actividades disponibles</a>
       <a href="progreso.php">Progreso</a>
-      <a href="perfil_adulto.php">Perfil</a>
+      <a href="salud.php">Salud</a>
+      <!-- <a href="perfil_adulto.php">Perfil</a> -->
       <div class="navbar-right">
         <a href="index.php">Cerrar Sesión</a>
       </div>
     </div>
-  <h1 style="text-align = center;">Adulto</h1>
+  <h1 style="text-align = center;">Adulto mayor</h1>
 </body>
 </html>

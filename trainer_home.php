@@ -10,7 +10,6 @@
     <?php include 'base_trainer.php'; ?>
     </div>
     <div class="container">
-        <h1>Entrenador</h1>
         <?php include 'conecta.php';
                 $bd = conectar();
                 $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'Entrenador'";

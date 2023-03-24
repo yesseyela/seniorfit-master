@@ -7,7 +7,8 @@
   </head>
   <body>
     <div>
-    <?php include 'base_adulto.php'; ?>
+    <?php include 'base_adulto.php'; 
+    ?>
     </div>
     <div class="cointainer">
         <h1> Registro de Actividades</h1>

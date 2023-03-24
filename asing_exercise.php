@@ -8,7 +8,7 @@
   <body>
     <div>
     <?php include 'base_trainer.php'; ?>
-    </div> <!--- no se comohacer la relacion ejercicio adulto mayor-->
+    </div> 
     <div class="cointainer">
 
         <form method="post" action="asignar_ejercicio.php">
