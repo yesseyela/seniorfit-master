@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2023 a las 02:23:39
+-- Tiempo de generación: 24-03-2023 a las 15:54:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
@@ -43,7 +43,11 @@ INSERT INTO `asignacion_ejercicios` (`id_asignacion`, `id_ejercicio`, `id_usuari
 (50, 13, 'karen', '2023-03-24 00:06:01', 1),
 (51, 14, 'karen', '2023-03-24 00:06:01', 1),
 (52, 15, 'camiyela', '2023-03-24 01:08:50', 1),
-(53, 16, 'camiyela', '2023-03-24 01:08:50', 1);
+(53, 16, 'camiyela', '2023-03-24 01:08:50', 1),
+(54, 17, 'delia', '2023-03-24 12:44:23', 1),
+(55, 18, 'delia', '2023-03-24 12:44:24', 1),
+(56, 19, 'delia', '2023-03-24 12:44:24', 1),
+(57, 16, 'delia', '2023-03-24 12:46:23', 1);
 
 -- --------------------------------------------------------
 
@@ -87,10 +91,21 @@ INSERT INTO `ejercicios` (`id_ejercicio`, `nombre_ejercicio`, `imagen`, `fecha_a
 CREATE TABLE `registro_ejercicio` (
   `id_registro_ejercicio` int(11) NOT NULL,
   `id_asignacion` int(11) NOT NULL,
-  `duracion` int(70) NOT NULL,
+  `duracion` time NOT NULL,
   `completado` tinyint(1) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `registro_ejercicio`
+--
+
+INSERT INTO `registro_ejercicio` (`id_registro_ejercicio`, `id_asignacion`, `duracion`, `completado`, `fecha`) VALUES
+(2, 54, '00:07:35', 1, '2023-03-24 14:17:06'),
+(3, 54, '00:00:05', 1, '2023-03-24 14:18:24'),
+(5, 56, '00:24:00', 0, '2023-03-24 14:38:14'),
+(6, 56, '00:24:00', 1, '2023-03-24 14:38:34'),
+(7, 55, '00:10:22', 1, '2023-03-24 14:42:39');
 
 -- --------------------------------------------------------
 
@@ -110,19 +125,23 @@ CREATE TABLE `usuarios` (
   `nombre_usuario` varchar(10) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `cedula` varchar(15) DEFAULT NULL,
-  `telefono` varchar(10) DEFAULT NULL
+  `telefono` varchar(10) DEFAULT NULL,
+  `enfermedades` text DEFAULT NULL,
+  `limitaciones` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `edad`, `fecha_nacimiento`, `genero`, `tipo_usuario`, `email`, `password`, `nombre_usuario`, `fecha_registro`, `cedula`, `telefono`) VALUES
-(3, 'Camila Yela', 22, '2001-01-11', 'Femenino', 'Adulto Mayor', 'cami@gmail.com', '123', 'camiyela', '2023-03-22 06:23:26', '1007292710', '3108276464'),
-(1, 'Luisa Yela', 22, '2001-02-11', 'Femenino', 'Adulto Mayor', 'canelita@gmail.com', '1234', 'cane', '2023-03-22 06:12:54', '123', '3108276464'),
-(2, 'José Mora', 52, '1972-02-12', 'Masculino', 'Entrenador', 'joseyela@gmail.com', '123', 'jose', '2023-03-22 06:23:21', '98352444', '3145431020'),
-(5, 'Karen Vera', 17, '2000-12-12', 'Femenino', 'Adulto Mayor', 'karen@gmail.com', '123', 'karen', '2023-03-22 06:23:50', '1888881', '12919299'),
-(4, 'Verónica Vera', 22, '2000-11-12', 'Femenino', 'Adulto Mayor', 'vero@gmail.com', '123', 'vero', '2023-03-22 06:23:30', '108879909', '9909090');
+INSERT INTO `usuarios` (`id`, `nombre`, `edad`, `fecha_nacimiento`, `genero`, `tipo_usuario`, `email`, `password`, `nombre_usuario`, `fecha_registro`, `cedula`, `telefono`, `enfermedades`, `limitaciones`) VALUES
+(3, 'Camila Yela', 22, '2001-01-11', 'Femenino', 'Adulto Mayor', 'cami@gmail.com', '123', 'camiyela', '2023-03-22 06:23:26', '1007292710', '3108276464', NULL, NULL),
+(1, 'Luisa Yela', 22, '2001-02-11', 'Femenino', 'Adulto Mayor', 'canelita@gmail.com', '1234', 'cane', '2023-03-22 06:12:54', '123', '3108276464', NULL, NULL),
+(0, 'Gabriel Madroñero', 50, '1973-02-03', 'Femenino', 'Adulto Mayor', 'veronicavera3217@gmail.com', '123', 'delia', '2023-03-24 06:01:09', '1004', '31561631', 'Hipertensión, Artritis', 'Movilidad reducida, Dificultades para hablar'),
+(6, 'def', 65, '1680-05-05', 'Femenino', 'Adulto Mayor', 'paolaan766@gmail.com', '123', 'gabitoMao2', '2023-03-24 06:01:52', '23', '1233', NULL, NULL),
+(2, 'José Mora', 52, '1972-02-12', 'Masculino', 'Entrenador', 'joseyela@gmail.com', '123', 'jose', '2023-03-22 06:23:21', '98352444', '3145431020', NULL, NULL),
+(5, 'Karen Vera', 17, '2000-12-12', 'Femenino', 'Adulto Mayor', 'karen@gmail.com', '123', 'karen', '2023-03-22 06:23:50', '1888881', '12919299', NULL, NULL),
+(4, 'Verónica Vera', 22, '2000-11-12', 'Femenino', 'Adulto Mayor', 'vero@gmail.com', '123', 'vero', '2023-03-22 06:23:30', '108879909', '9909090', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +182,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `asignacion_ejercicios`
 --
 ALTER TABLE `asignacion_ejercicios`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicios`
@@ -175,7 +194,7 @@ ALTER TABLE `ejercicios`
 -- AUTO_INCREMENT de la tabla `registro_ejercicio`
 --
 ALTER TABLE `registro_ejercicio`
-  MODIFY `id_registro_ejercicio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_registro_ejercicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

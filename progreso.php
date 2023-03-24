@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Actividades - Adulto Home</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Progreso - Adulto Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style_activities.css">
-  </head>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/styles.css">
+   </head>
   <body>
     <div>
     <?php 
@@ -16,16 +22,17 @@
       $bd = conectar();
     ?>
     </div>
-    <div class="cointainer">
-        <h1> Registro de Actividades</h1>
-        <table>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mx-auto d-block">
+        <h1 class="text"> <strong>Registro de Actividades</strong></h1><br>
+        <table class="table table-success table-striped ">
         <thead>
             <tr>
-            <th>Nombre del ejercicio</th>
-            <th>Duracion</th>
-            <th>Fecha de Desarrollo</th>
-            <th>Fecha de Asignacion</th>
-            </tr>
+            <th><strong><center>Nombre del ejercicio</center></strong></th>
+            <th><strong><center>Duracion</center></strong></th>
+            <th><strong><center>Fecha de Desarrollo</center></strong></th>
+            <th><strong><center>Fecha de Asignacion</center></strong></th>
         </thead>
         <tbody>
            <?php
@@ -51,8 +58,11 @@
             }
             mysqli_close($bd);
            ?>
+        
+      
         </table>
-        <!--<input type="submit" value="Guardar cambios">-->
+        </div>
+      </div>
     </div>
 
     </body>

@@ -1,10 +1,10 @@
 <?php
-function conectar(){
+function conectar() {
     $bd = mysqli_connect("localhost","root","","seniorfit");
-    if (!$bd){
-        echo "<h3>Conexión no realizada<h3>";
-        return NULL;
+    if (!$bd) {
+        die("Conexión fallida: " . mysqli_connect_error());
     }
+    mysqli_set_charset($bd, "utf8");
     return $bd;
 }
 ?>

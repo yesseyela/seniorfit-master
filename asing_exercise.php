@@ -1,70 +1,90 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Añadir ejercicio - Entrenador</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style_trainer.css">
-  </head>
-  <body>
-    <div>
+<div class="container">
     <?php include 'base_trainer.php'; ?>
-    </div> 
-    <div class="cointainer">
-    <?php
+</div> 
 
-        include 'conecta.php';
-        $bd = conectar();
+  <?php
+      include 'conecta.php';
+      $bd = conectar();
+  ?>
 
-        $cedula_usu = $_GET['cedula']; 
-        $query_usuario = "SELECT * FROM usuarios WHERE cedula = '$cedula_usu'";
-        $resultado = mysqli_query($bd, $query_usuario);
-        $usuario = mysqli_fetch_array($resultado);
-        $nombre_usu = $usuario['nombre_usuario'];
-        $nombre = $usuario['nombre'];
-        $enfermedades = $usuario['enfermedades'];
-        $limitaciones = $usuario['limitaciones'];
-
-        //Mostrar enfermedades y limitaciones del usuario al entrenador
-        echo "<h3>Las enfermedades del usuario ". $nombre . " son: " . $enfermedades . ".</h2>";
-        echo "<h3>Las limitaciones del usuario ". $nombre . " son: " . $limitaciones . ".</h2>";
-
-    ?>
-        <br>
-        <form method="post" action="asignar_ejercicio.php">
-        <table>
-        <thead>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto d-block">
+      <h1 class="text"> <strong>Usuarios con enfermedades y limitaciones</strong></h1><br>
+        <table class="table table-success table-striped ">
+          <thead>
             <tr>
-            <th>Nombre del ejercicio</th>
-            <th>Imagen</th>
-            <th>Habilitado</th>
+              <th>Nombre</th>
+              <th>Enfermedades</th>
+              <th>Limitaciones</th>
             </tr>
-        </thead>
-        <tbody>
-           
-          <?php
-            $query = "SELECT * FROM ejercicios";
-            $result = mysqli_query($bd, $query);
-            while ($row = mysqli_fetch_array($result)) {
-              echo "<tr>";
-              echo "<td>" . $row['nombre_ejercicio'] . "</td>";
-              $imagen_base64 = base64_encode($row['imagen']);
-              echo "<td><img src='data:image/jpg;base64, $imagen_base64' style='width: 120px;'></td>";
-              // Mostrar un checkbox para habilitar/deshabilitar el ejercicio
-              echo "<td><input type='checkbox' name='ejercicio_" . $row['id_ejercicio'] . "' value='1'></td>";
-              echo "</tr>";
-            }
-            mysqli_close($bd);
-           ?>
-        </tbody>
-        
+          </thead>
+          <tbody>
+            <?php
+              $query = "SELECT * FROM usuarios WHERE enfermedades IS NOT NULL AND limitaciones IS NOT NULL";
+              $resultado = mysqli_query($bd, $query);
+              while ($usuario = mysqli_fetch_array($resultado)) {
+                echo "<tr>";
+                echo "<td>" . $usuario['nombre'] . "</td>";
+                echo "<td>" . $usuario['enfermedades'] . "</td>";
+                echo "<td>" . $usuario['limitaciones'] . "</td>";
+                echo "</tr>";
+              }
+            ?>
+          </tbody>
         </table>
-        <br>
-        <input type="hidden" name="cedula" value="<?php echo $cedula_usu; ?>">
-        <center>
-        <input type="submit" value="Guardar cambios">
-          </center>
-        <br>
-        </form>
+      </div>
     </div>
-    </body>
-</html>
+  </div>
+</div>
+
+
+
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-auto d-block">
+        <h1 class="text"> <strong>Asignar Actividades</strong></h1><br>
+        <form method="post" action="asignar_ejercicio.php">
+          <table class="table table-danger table-striped table-bordered border ">
+              <thead>
+                  <tr>
+                      <th><strong><center><h3>Nombre del ejercicio</h3></center></strong></th>
+                      <th><strong><center><h3>Imagen</h3></center></strong></th>
+                      <th><strong><center><h3>Habilitado</h3></center></strong></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php
+                      $query = "SELECT * FROM ejercicios";
+                      $result = mysqli_query($bd, $query);
+                      while ($row = mysqli_fetch_array($result)) {
+                          echo "<tr>";
+                          echo "<td><strong><center>" . $row['nombre_ejercicio'] . "</center></strong></td>";
+                          $imagen_base64 = base64_encode($row['imagen']);
+                          echo "<td><img class='card-img-top' src='data:image/jpg;base64, $imagen_base64' alt='Card image cap' style='width: 120px; object-fit: cover;'></center></td>";
+                          // Mostrar un checkbox para habilitar/deshabilitar el ejercicio
+                          echo "<td><center><input type='checkbox' name='ejercicio_" . $row['id_ejercicio'] . "' value='1'></td>";
+                          echo "</tr>";
+                      }
+                      mysqli_close($bd);
+                  ?>
+              </tbody>
+          </table>
+
+          <br>
+
+          <input type="hidden" name="cedula" value="<?php echo $cedula_usu; ?>">
+          <center>
+              <input type="submit" value="Guardar cambios" class="btn btn-primary">
+          </center>
+
+          <br>
+      </form>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

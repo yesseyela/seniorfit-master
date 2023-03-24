@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Inicio - Entrenador</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENIOR FIT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style_trainer.css">
-  </head>
+    </head>
   <body>
     <div>
     <?php include 'base_trainer.php'; ?>
     </div>
+    
+
+    <?php include 'conecta.php';
+        $bd = conectar();
+        $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'Entrenador'";
+        $result = mysqli_query($bd, $query);
+        $entrenador = mysqli_fetch_array($result);
+        $query2 = "SELECT * FROM usuarios WHERE tipo_usuario = 'Adulto Mayor'";
+        $result2 = mysqli_query($bd, $query2);
+        ?>
+
     <div class="container">
-        <?php include 'conecta.php';
-                $bd = conectar();
-                $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'Entrenador'";
-                $result = mysqli_query($bd, $query);
-                $entrenador = mysqli_fetch_array($result);
-                $query2 = "SELECT * FROM usuarios WHERE tipo_usuario = 'Adulto Mayor'";
-                $result2 = mysqli_query($bd, $query2);
-             ?>
-        <h2>
-             <?php 
-             echo "Bienvenido, ".$entrenador['nombre']; ?>
-            </h2> <!-- Mostrar el nombre del entrenador  no-->
-        <table class="table">
+    <h2>
+        <?php 
+        echo "Bienvenido Entrenador, ".$entrenador['nombre']; ?>
+    </h2>
+      <div class="row">
+        <div class="col-bg-12 col-sm-12 mx-auto d-block">
+        <h1 class="text"> <strong>Lista de Adultos Mayores</strong></h1><br>
+        <table class="table table-warning table-striped ">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -52,5 +61,7 @@
                 ?>
             </tbody>
         </table>
+        </div>
+      </div>
     </div>
 </body

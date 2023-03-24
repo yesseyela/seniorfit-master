@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - SENIOR FIT</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Progreso - Adulto Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style_perfil.css">
-</head>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/styles.css">
+   </head>
 <body>
     <div>
     <?php include 'base_trainer.php'; ?>
     </div>
-    <table>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mx-auto d-block">
+        <h1 class="text"> <strong>Perfil del Entrenador</strong></h1><br>
+        <table class="table table-success table-striped ">
         <thead>
             <tr>
-                <th>Cedula</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Contraseña</th>
-                <th>Acciones</th>
+                <th><strong><center>Cedula</center></strong></th>
+                <th><strong><center>Nombre</center></strong></th>
+                <th><strong><center>Correo</center></strong></th>
+                <th><strong><center>Contraseña</center></strong></th>
+                <th><strong><center>Acciones</center></strong></th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +50,9 @@
                 mysqli_close($bd);
             ?>
         </tbody>
-    </table>
+        </table>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

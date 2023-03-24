@@ -1,4 +1,5 @@
 <?php
+// Conexión a la base de datos
 include("conecta.php");
 $bd = conectar();
 
