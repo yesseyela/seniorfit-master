@@ -21,7 +21,11 @@
           </thead>
           <tbody>
             <?php
-              $query = "SELECT * FROM usuarios WHERE enfermedades IS NOT NULL AND limitaciones IS NOT NULL";
+            $cedula_usu = $_GET['cedula'];
+            $query_usuario = "SELECT * FROM usuarios WHERE cedula = '$cedula_usu'";
+            $resultado = mysqli_query($bd, $query_usuario);
+            $usuario = mysqli_fetch_array($resultado);
+              $query = "SELECT * FROM usuarios WHERE enfermedades IS NOT NULL AND limitaciones IS NOT NULL AND cedula = '$cedula_usu'";
               $resultado = mysqli_query($bd, $query);
               while ($usuario = mysqli_fetch_array($resultado)) {
                 echo "<tr>";

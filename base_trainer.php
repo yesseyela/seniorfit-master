@@ -20,8 +20,8 @@
       
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Entrenador</a>
           <a class="nav-link" href="trainer_home.php">Lista Adultos Mayores</a>
+          <a class="nav-link" href="add_exercise.php">Añadir Ejercicios</a>
           <a class="nav-link" href="perfil_trainer.php">Perfil</a> 
         </div>
       </div>

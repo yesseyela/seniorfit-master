@@ -23,7 +23,7 @@ if (isset($_POST['asignacion']) && isset($_POST['duracion'])) {
 } else {
   echo "Faltan datos necesarios para guardar el ejercicio";
 }
-header('Location: activities.php');
-mysqli_close($bd);
+//header('Location: activities.php');
+//mysqli_close($bd);
 ?>
 
