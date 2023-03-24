@@ -8,8 +8,8 @@ $bd = conectar();
 if (isset($_POST['asignacion']) && isset($_POST['duracion'])) {
   $nombre_ejercicio = $_POST['asignacion'];
   $duracion = $_POST['duracion'];
-    //echo $nombre_ejercicio;
-    //echo $duracion;
+    echo $nombre_ejercicio;
+    echo $duracion;
     
   $query = "INSERT INTO registro_ejercicio (id_asignacion, duracion, completado ) 
   VALUES ('$nombre_ejercicio', '$duracion', 1)";
@@ -23,7 +23,7 @@ if (isset($_POST['asignacion']) && isset($_POST['duracion'])) {
 } else {
   echo "Faltan datos necesarios para guardar el ejercicio";
 }
-//header('Location: activities.php');
-//mysqli_close($bd);
+header('Location: activities.php');
+mysqli_close($bd);
 ?>
 
