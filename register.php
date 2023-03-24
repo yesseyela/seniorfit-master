@@ -49,56 +49,38 @@
       <div class="form-group">
         <label for="tipo_usuario">Tipo de Usuario:</label>
         <select class="form-control" id="tipo_usuario" name="tipo_usuario" required>
-          <option value="Otro">Otro</option>  
           <option value="Adulto Mayor">Adulto Mayor</option>
-          <!-- <option value="Entrenador">Entrenador</option> -->
         </select>
       </div>
-      <div class="form-group" id="preguntas_adulto_mayor" style="display: none;">
-  <fieldset>
-    <legend>Enfermedades:</legend>
-    <input type="checkbox" id="enfermedad1" name="enfermedad1" value="Diabetes">
-    <label for="enfermedad1"> Diabetes </label><br>
+      <fieldset>
+        <legend>Enfermedades:</legend>
+        <input type="checkbox" id="enfermedad1" name="enfermedad1" value="Diabetes">
+        <label for="enfermedad1"> Diabetes </label><br>
 
-    <input type="checkbox" id="enfermedad2" name="enfermedad2" value="Hipertensión">
-    <label for="enfermedad2"> Hipertensión </label><br>
+        <input type="checkbox" id="enfermedad2" name="enfermedad2" value="Hipertensión">
+        <label for="enfermedad2"> Hipertensión </label><br>
 
-    <input type="checkbox" id="enfermedad3" name="enfermedad3" value="Artritis">
-    <label for="enfermedad3"> Artritis </label><br>
+        <input type="checkbox" id="enfermedad3" name="enfermedad3" value="Artritis">
+        <label for="enfermedad3"> Artritis </label><br>
 
-    <input type="checkbox" id="enfermedad4" name="enfermedad4" value="Osteoporosis">
-    <label for="enfermedad4"> Osteoporosis </label><br>
-  </fieldset>
+        <input type="checkbox" id="enfermedad4" name="enfermedad4" value="Osteoporosis">
+        <label for="enfermedad4"> Osteoporosis </label><br>
+      </fieldset>
 
-  <fieldset>
-    <legend>Limitaciones físicas:</legend>
-    <input type="checkbox" id="limitacion1" name="limitacion1" value="Movilidad reducida">
-    <label for="limitacion1"> Movilidad reducida </label><br>
+      <fieldset>
+        <legend>Limitaciones físicas:</legend>
+        <input type="checkbox" id="limitacion1" name="limitacion1" value="Movilidad reducida">
+        <label for="limitacion1"> Movilidad reducida </label><br>
 
-    <input type="checkbox" id="limitacion2" name="limitacion2" value="Problemas de visión">
-    <label for="limitacion2"> Problemas de visión </label><br>
+        <input type="checkbox" id="limitacion2" name="limitacion2" value="Problemas de visión">
+        <label for="limitacion2"> Problemas de visión </label><br>
 
-    <input type="checkbox" id="limitacion3" name="limitacion2" value="Problemas de audición">
-    <label for="limitacion3"> Problemas de audición </label><br>
+        <input type="checkbox" id="limitacion3" name="limitacion2" value="Problemas de audición">
+        <label for="limitacion3"> Problemas de audición </label><br>
 
-    <input type="checkbox" id="limitacion4" name="limitacion4" value="Dificultades para hablar">
-    <label for="limitacion4"> Dificultades para hablar </label><br>
-  </fieldset>
-</div>
-
-      <script>
-        var tipoUsuarioSelect = document.getElementById("tipo_usuario");
-        var preguntasDiv = document.getElementById("preguntas_adulto_mayor");
-
-        tipoUsuarioSelect.onchange = function() {
-          if (tipoUsuarioSelect.value === "Adulto Mayor") {
-            preguntasDiv.style.display = "block";
-          } else {
-            preguntasDiv.style.display = "none";
-          }
-        }
-      </script>
-
+        <input type="checkbox" id="limitacion4" name="limitacion4" value="Dificultades para hablar">
+        <label for="limitacion4"> Dificultades para hablar </label><br>
+      </fieldset>
       <div class="form-group">
         <label for="email">Correo Electrónico:</label>
         <input type="email" class="form-control" id="email" name="email" required>

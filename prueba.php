@@ -30,13 +30,13 @@
           include 'conecta.php';
           $bd = conectar();
           $query = "SELECT regis.id_asignacion, regis.duracion, asig.id_ejercicio, asig.id_usuario, ejer.nombre_ejercicio, ejer.imagen 
-          FROM `registro_ejercicio` as regis 
+          FROM registro_ejercicio as regis 
           INNER JOIN asignacion_ejercicios as asig ON asig.id_asignacion = regis.id_asignacion 
           INNER JOIN ejercicios as ejer on asig.id_ejercicio = ejer.id_ejercicio 
           WHERE regis.id_asignacion = '$asignacion'";
             $result = mysqli_query($bd, $query);
             $array_aux = mysqli_fetch_array($result);
-           // $asignacion2 = $array_aux[0];
+            $asignacion2 = $array_aux['id_asignacion'];
 
         ?>
         <center>
@@ -49,8 +49,7 @@
         <br>
 
         <form method="POST" action="guardar_ejercicio.php">
-          <!--<input type="hidden" name="asignacion" value=<?php echo $asignacion2; ?>">-->
-          <input type="hidden" name="asignacion" value="<?php echo $asignacion; ?>">
+          <input type="hidden" name="asignacion" value="<?php echo $asignacion2; ?>">
           <input type="hidden" name="usuario" value="<?php echo $nombre_usu; ?>">
           <input type="hidden" name="duracion" id="duracion" value="">
           <input type="submit" value="Guardar">

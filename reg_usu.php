@@ -53,23 +53,53 @@ VALUES ('$nombre', '$cedula', '$telefono', '$edad', '$fecha_nacimiento', '$gener
 $res = mysqli_query($bd,$sql);
 
 if (!$res){
-    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-    <strong>Error</strong><br>La cedula registrada ya existe!!.
-    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
-    </button></div>";
-    header ("refresh:1; url=register.php");
+    //echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+    //<strong>Error</strong><br>La cedula registrada ya existe!!.
+    //<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
+    //</button></div>";
+    echo "<script>alert('La cedula registrada ya existe!!.')</script>";
+    header ("location:register.php");
 }
 else{
-    echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>
-    <strong>Atención</strong><br>Registro adicionado con éxito!!.
-    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
-    </button></div>";
-    header ("refresh:1; url=register.php");
+    //echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>
+    //<strong>Atención</strong><br>Registro adicionado con éxito!!.
+    //<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
+    //</button></div>";
+    echo "<script>alert('Registro adicionado con éxito!!.')</script>";
+    header ("location:register.php");
 }
+
 // Cerrar la conexión a la base de datos
 mysqli_close($bd);
 ?>
 
+<style>
+    .alert {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert button.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+</style>
 
 
