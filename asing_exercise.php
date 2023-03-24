@@ -10,7 +10,26 @@
     <?php include 'base_trainer.php'; ?>
     </div> 
     <div class="cointainer">
+    <?php
 
+        include 'conecta.php';
+        $bd = conectar();
+
+        $cedula_usu = $_GET['cedula']; 
+        $query_usuario = "SELECT * FROM usuarios WHERE cedula = '$cedula_usu'";
+        $resultado = mysqli_query($bd, $query_usuario);
+        $usuario = mysqli_fetch_array($resultado);
+        $nombre_usu = $usuario['nombre_usuario'];
+        $nombre = $usuario['nombre'];
+        $enfermedades = $usuario['enfermedades'];
+        $limitaciones = $usuario['limitaciones'];
+
+        //Mostrar enfermedades y limitaciones del usuario al entrenador
+        echo "<h3>Las enfermedades del usuario ". $nombre . " son: " . $enfermedades . ".</h2>";
+        echo "<h3>Las limitaciones del usuario ". $nombre . " son: " . $limitaciones . ".</h2>";
+
+    ?>
+        <br>
         <form method="post" action="asignar_ejercicio.php">
         <table>
         <thead>
@@ -21,13 +40,8 @@
             </tr>
         </thead>
         <tbody>
-           <?php
-
-            include 'conecta.php';
-            $bd = conectar();
-
-            $cedula_usu = $_GET['cedula']; 
-
+           
+          <?php
             $query = "SELECT * FROM ejercicios";
             $result = mysqli_query($bd, $query);
             while ($row = mysqli_fetch_array($result)) {
@@ -42,6 +56,7 @@
             mysqli_close($bd);
            ?>
         </tbody>
+        
         </table>
         <br>
         <input type="hidden" name="cedula" value="<?php echo $cedula_usu; ?>">

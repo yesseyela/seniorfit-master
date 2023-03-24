@@ -8,6 +8,7 @@ $resultado = mysqli_query($bd, $query_usuario);
 $usuario = mysqli_fetch_array($resultado);
 $nombre_usu = $usuario['nombre_usuario'];
 
+
 foreach ($_POST as $key => $value) {
   if (substr($key, 0, 9) === 'ejercicio') {
     $id_ejercicio = substr($key, 9);
@@ -36,6 +37,6 @@ if ($first) {
   echo "No se registraron ejercicios.";
 }
 
-//header("Location: trainer_home.php"); 
-//exit();
+header("Location: trainer_home.php"); 
+exit();
 ?>

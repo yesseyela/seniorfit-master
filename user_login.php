@@ -50,9 +50,11 @@
       <input type="password" id="password" name="password" required>
       <button type="submit">Iniciar sesión</button>
     </form>
+    <center>
     <p>¿No tienes una cuenta? <a href="register.php">Regístrate</a></p>
     <div class="volver">
       <a href="index.php"><button>Volver al inicio</button></a>
     </div>
+    </center>
 </body>
 </html>

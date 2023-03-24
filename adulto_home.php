@@ -18,27 +18,51 @@
       $result = mysqli_query($bd, $query);
       $row = mysqli_fetch_array($result);
       echo "<h1> Bienvenido, " . $row['nombre'] . " </h1>";
+      echo "<br>";
+      echo "<br>";
       // Cerrar la conexión a la base de datos
       mysqli_close($bd);
     ?>
     </div>
-    <!-- hacer un tipo instructivo o bienvenida al adulto mayor--->
-    <h2>Bievenido adulto mayor</h2>
-    <div class="opciones_adulto">
-      <hr>
-      <div class="tarjeta">
-        <h3>Estado de salud</h3>
-        <a href="salud.php">
-          <img src="img/salud.png" alt="salud">
-        </a>
+    <div class="contenedor">
+      <div class="seccion1">
+        FOTO QUE VI DONDE VALERIA
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            <br>
+            Eum suscipit dolore fuga eveniet, amet a odio! Omnis minima
+            <br>
+            iusto, sunt laboriosam, error cum corporis a obcaecati consequatur quis ex nemo.
       </div>
+      <div class="seccion2">
+        TEXTO DESCRIPCION VALERIA
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            <br>
+            Eum suscipit dolore fuga eveniet, amet a odio! Omnis minima
+            <br>
+            iusto, sunt laboriosam, error cum corporis a obcaecati consequatur quis ex nemo.
+      </div>
+      
+      <div class="opciones_adulto">
       <div class="tarjeta">
+      <br><br><br><br><br><br><br>
         <h3>Ejercicios</h3>
         <a href="activities.php ">
-          <img src="img/aptitud-fisica.png" alt="ejercicio">
+          <img src="img/aptitud-fisica.png" alt="ejercicio" style="width: 100px;">
         </a>
       </div>
+      <br>
+      <br>
+      <div class="opciones_adulto">
+        <div class="tarjeta">
+            <h3>Estado de salud</h3>
+            <a href="salud.php">
+              <img src="img/salud.png" alt="salud" style="width: 100px;">
+            </a>
+        </div>
+      </div>
+    </div>
     </div>
 
     </body>
 </html>
+

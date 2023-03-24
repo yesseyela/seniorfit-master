@@ -24,14 +24,15 @@
           die("Error al ejecutar la consulta: " . mysqli_error($bd));
         }
       ?>
-    <h2>
-      
+   
+      <h2>
       Ejercicios Asignados
     </h2>
+
       <div>
           <?php
             while ($ejercicio = mysqli_fetch_array($resultado_ejercicios)) {
-              echo "<a href='prueba.js?id=" . $ejercicio['nombre_ejercicio'] . "'> <div>"; 
+              echo "<a href='prueba.php?id=" . $ejercicio['id_asignacion'] . "'> <div>"; 
               // "<a href='delete_exercise.php?id=" . $row['id_ejercicio'] . "'>;
               $imagen_base64 = base64_encode($ejercicio['imagen']);
               echo " " . $ejercicio['nombre_ejercicio'] . "<img src='data:image/jpg;base64, $imagen_base64' style='width: 150px;'>" ." ";

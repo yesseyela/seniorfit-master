@@ -19,6 +19,6 @@
         <a href="index.php">Cerrar Sesión</a>
       </div>
     </div>
-  <h1 style="text-align = center;">Adulto mayor</h1>
+  <h3 style="text-align = center;">Perfil: Adulto Mayor</h3>
 </body>
 </html>

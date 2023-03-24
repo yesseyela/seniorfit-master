@@ -54,36 +54,37 @@
         </select>
       </div>
       <div class="form-group" id="preguntas_adulto_mayor" style="display: none;">
-        <fieldset>
-          <legend>Enfermedades:</legend>
-          <input type="checkbox" id="enfermedad1" name="enfermedades" value="Diabetes">
-          <label for="enfermedad1"> Diabetes </label><br>
+  <fieldset>
+    <legend>Enfermedades:</legend>
+    <input type="checkbox" id="enfermedad1" name="enfermedad1" value="Diabetes">
+    <label for="enfermedad1"> Diabetes </label><br>
 
-          <input type="checkbox" id="enfermedad2" name="enfermedades" value="Hipertensión">
-          <label for="enfermedad2"> Hipertensión </label><br>
+    <input type="checkbox" id="enfermedad2" name="enfermedad2" value="Hipertensión">
+    <label for="enfermedad2"> Hipertensión </label><br>
 
-          <input type="checkbox" id="enfermedad3" name="enfermedades" value="Artritis">
-          <label for="enfermedad3"> Artritis </label><br>
+    <input type="checkbox" id="enfermedad3" name="enfermedad3" value="Artritis">
+    <label for="enfermedad3"> Artritis </label><br>
 
-          <input type="checkbox" id="enfermedad4" name="enfermedades" value="Osteoporosis">
-          <label for="enfermedad4"> Osteoporosis </label><br>
-        </fieldset>
+    <input type="checkbox" id="enfermedad4" name="enfermedad4" value="Osteoporosis">
+    <label for="enfermedad4"> Osteoporosis </label><br>
+  </fieldset>
 
-        <fieldset>
-          <legend>Limitaciones físicas:</legend>
-          <input type="checkbox" id="limitacion1" name="limitaciones" value="Movilidad reducida">
-          <label for="limitacion1"> Movilidad reducida </label><br>
+  <fieldset>
+    <legend>Limitaciones físicas:</legend>
+    <input type="checkbox" id="limitacion1" name="limitacion1" value="Movilidad reducida">
+    <label for="limitacion1"> Movilidad reducida </label><br>
 
-          <input type="checkbox" id="limitacion2" name="limitaciones" value="Problemas de visión">
-          <label for="limitacion2"> Problemas de visión </label><br>
+    <input type="checkbox" id="limitacion2" name="limitacion2" value="Problemas de visión">
+    <label for="limitacion2"> Problemas de visión </label><br>
 
-          <input type="checkbox" id="limitacion3" name="limitaciones" value="Problemas de audición">
-          <label for="limitacion3"> Problemas de audición </label><br>
+    <input type="checkbox" id="limitacion3" name="limitacion2" value="Problemas de audición">
+    <label for="limitacion3"> Problemas de audición </label><br>
 
-          <input type="checkbox" id="limitacion4" name="limitaciones" value="Dificultades para hablar">
-          <label for="limitacion4"> Dificultades para hablar </label><br>
-        </fieldset>
-      </div>
+    <input type="checkbox" id="limitacion4" name="limitacion4" value="Dificultades para hablar">
+    <label for="limitacion4"> Dificultades para hablar </label><br>
+  </fieldset>
+</div>
+
       <script>
         var tipoUsuarioSelect = document.getElementById("tipo_usuario");
         var preguntasDiv = document.getElementById("preguntas_adulto_mayor");
