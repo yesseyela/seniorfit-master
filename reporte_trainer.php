@@ -15,12 +15,37 @@ $cedula = $_REQUEST["cedula"];
     $datos1 = mysqli_query($bd,$sql);
     $arr = mysqli_fetch_array($datos1);
 
+
 $pdf->SetFont('Arial','',12);
 $pdf->Cell(60,5,utf8_decode("Cédula: $arr[cedula]"),0,1);
 $pdf->Cell(60,5,utf8_decode("Nombre: $arr[nombre]"),0,1);
 $pdf->Cell(60,5,utf8_decode("Género: $arr[genero]"),0,1);
 $pdf->Ln();
 
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(80,7,'Actividades',1,0,'C');
+$pdf->Cell(45,7,'Fecha',1,0,'C');
+$pdf->Cell(40,7,utf8_decode('Duración ejercicio'),1,1,'C'); // se mueve aquí
+$pdf->SetFont('Arial','',12);
+    
+$query = "SELECT regis.id_asignacion, regis.duracion, regis.fecha,
+              asig.id_ejercicio, asig.id_usuario, asig.fecha_asignacion,
+              ejer.nombre_ejercicio, ejer.imagen,
+              usu.nombre, usu.edad
+              FROM registro_ejercicio as regis 
+              INNER JOIN asignacion_ejercicios as asig ON asig.id_asignacion = regis.id_asignacion 
+              INNER JOIN ejercicios as ejer on asig.id_ejercicio = ejer.id_ejercicio
+              INNER JOIN usuarios as usu on usu.nombre_usuario = asig.id_usuario
+              WHERE usu.cedula = '$cedula'";
+$result = mysqli_query($bd, $query);
+    
+while ($actividades = mysqli_fetch_array($result)) {
+     $pdf->Cell(80,7,utf8_decode($actividades['nombre_ejercicio']),1,0);
+     $pdf->Cell(45,7,$actividades['fecha'],1,0);
+     $pdf->Cell(40,7,$actividades['duracion'],1,1); // se mueve aquí también
+}
+
+/*
 $query = "SELECT regis.id_asignacion, regis.duracion, regis.fecha,
             asig.id_ejercicio, asig.id_usuario, asig.fecha_asignacion,
             ejer.nombre_ejercicio, ejer.imagen,
@@ -38,10 +63,9 @@ $pdf->Cell(80,10,'Actividades',1,0,'C');
 $pdf->Cell(50,10,'Fecha',1,1,'C');
 $pdf->SetFont('Arial','',12);
   
-while ($actividades) {
-  $pdf->Cell(80,10,$actividades['nombre_ejercicio'],1,0);
-  $pdf->Cell(50,10,$actividades['fecha'],1,1);
-}
+$pdf->Cell(80,10,utf8_decode($actividades['nombre_ejercicio']),1,0);
+$pdf->Cell(50,10,$actividades['fecha'],1,1);
+*/
 
 $pdf->Ln();
 
