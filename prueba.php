@@ -36,7 +36,7 @@
           WHERE regis.id_asignacion = '$asignacion'";
             $result = mysqli_query($bd, $query);
             $array_aux = mysqli_fetch_array($result);
-            $asignacion2 = $array_aux['id_asignacion'];
+            //$asignacion2 = $array_aux['id_asignacion'];
 
         ?>
         <center>
@@ -49,7 +49,7 @@
         <br>
 
         <form method="POST" action="guardar_ejercicio.php">
-          <input type="hidden" name="asignacion" value="<?php echo $asignacion2; ?>">
+          <input type="hidden" name="asignacion" value="<?php echo $asignacion; ?>">
           <input type="hidden" name="usuario" value="<?php echo $nombre_usu; ?>">
           <input type="hidden" name="duracion" id="duracion" value="">
           <input type="submit" value="Guardar">
