@@ -41,7 +41,7 @@
             asig.id_ejercicio, asig.id_usuario, asig.fecha_asignacion,
             ejer.nombre_ejercicio, ejer.imagen,
             usu.nombre, usu.edad
-            FROM `registro_ejercicio` as regis 
+            FROM registro_ejercicio as regis 
             INNER JOIN asignacion_ejercicios as asig ON asig.id_asignacion = regis.id_asignacion 
             INNER JOIN ejercicios as ejer on asig.id_ejercicio = ejer.id_ejercicio
             INNER JOIN usuarios as usu on usu.nombre_usuario = asig.id_usuario
